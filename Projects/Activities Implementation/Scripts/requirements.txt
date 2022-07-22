@@ -4,3 +4,4 @@ sqlalchemy
 xlwt
 pymysql
 thefuzz
+openpyxl

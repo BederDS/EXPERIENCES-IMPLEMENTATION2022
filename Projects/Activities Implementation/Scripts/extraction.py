@@ -36,14 +36,8 @@ countries_dic = {}
 for entry in civitatis_countries:
     countries_dic[entry['name']]=entry['id']
 
-frames = []
-for country_id in countries_dic.values():
 
-    print(country_id,len(countries_dic.values()),flush=True)
-    frames.append(pd.DataFrame(session.get_country_destinations(country_id,'en')))
-
-print('countries done',flush=True)
-all_destinations_df =  pd.concat(frames)
+all_destinations_df =  pd.DataFrame(session.get_destinations('en'))
 
 all_destinations_df.to_csv(f'C:\\Users\\beder\Desktop\Data 2022\Projects\Activities Implementation\Outputs\Civitatis Exctraction\\all_destinations{d1}.csv',index=False)
 
