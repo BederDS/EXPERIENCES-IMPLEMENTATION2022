@@ -49,7 +49,14 @@ for i, acti_id  in enumerate(all_destinations_df['id']):
 
 print('activities done')
 all_activities = pd.concat(acti_frames)
+latitude = []
+longitude = []
+for address in all_activities['address']:
+    latitude.append(address['latitude'])
+    longitude.append(address['longitude'])
 
+all_activities['latitude'] = latitude
+all_activities['longitude'] = longitude
 all_activities.to_csv(f'C:\\Users\\beder\Desktop\Data 2022\Projects\Activities Implementation\Outputs\Civitatis Exctraction\\all_activities{d1}.csv',index=False)
 
 
